@@ -1,14 +1,27 @@
-°²×°²½Öè
+å®‰è£…æ­¥éª¤
+
 git clone 
-¸´ÖÆ.env.exampleÎª.env
-ÅäÖÃ.envÀïµÄÊı¾İ¿âÁ¬½ÓĞÅÏ¢
+
+å¤åˆ¶.env.exampleä¸º.env
+
+é…ç½®.envé‡Œçš„æ•°æ®åº“è¿æ¥ä¿¡æ¯
+
 composer update
+
 php artisan migrate
+
 php artisan db:seed
+
 php artisan key:generate
-µÇÂ¼ºóÌ¨£ºhost/admin   ÕÊºÅ£ºroot  ÃÜÂë£º123456
-Í¼Æ¬Õ¹Ê¾
-ºóÌ¨Ö÷Ò³ 
-ÓÃ»§ 
-È¨ÏŞ 
-ÏûÏ¢ÍÆËÍ 
+
+ç™»å½•åå°ï¼šhost/admin   å¸å·ï¼šroot  å¯†ç ï¼š123456
+
+å›¾ç‰‡å±•ç¤º
+
+åå°ä¸»é¡µ 
+
+ç”¨æˆ· 
+
+æƒé™ 
+
+æ¶ˆæ¯æ¨é€ 
