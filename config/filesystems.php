@@ -63,6 +63,19 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => 'qiniu.golanggogo.com', //你的七牛域名
+                'https'     => '',         //你的HTTPS域名
+                'custom'    => '',                //Useless 没啥用，请直接使用上面的 default 项
+            ],
+            'access_key'=> 'F_81SWGKVFcZiCU1iZC9mppV4q99plLXWo78kX_9',  //AccessKey
+            'secret_key'=> 'ksas8GWkoq-w1Nw7c3kG378-WnY-CYYGFuH0bDvg',  //SecretKey
+            'bucket'    => 'wangyanqi',  //Bucket名字
+            'notify_url'=> '',  //持久化处理回调地址
+            'access'    => 'public'  //空间访问控制 public 或 private
+        ],
     ],
 
 ];

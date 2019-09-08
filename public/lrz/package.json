@@ -1,0 +1,76 @@
+{
+  "_from": "lrz",
+  "_id": "lrz@4.9.40",
+  "_inBundle": false,
+  "_integrity": "sha1-L9O0JYiiClf9eqefgVaMhF5OPXM=",
+  "_location": "/lrz",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "lrz",
+    "name": "lrz",
+    "escapedName": "lrz",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/lrz/download/lrz-4.9.40.tgz",
+  "_shasum": "2fd3b42588a20a57fd7aa79f81568c845e4e3d73",
+  "_spec": "lrz",
+  "_where": "D:\\phpstudy\\PHPTutorial\\WWW\\新建文件夹",
+  "author": {
+    "name": "think2011"
+  },
+  "bugs": {
+    "url": "https://github.com/think2011/localResizeIMG/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "gulp-insert": "^0.5.0",
+    "gulp-rename": "^1.2.2"
+  },
+  "deprecated": false,
+  "description": "前端本地客户端压缩图片，兼容IOS，Android，PC、自动按需加载文件",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-static-hash": "^0.1.3",
+    "gulp-webpack": "^1.5.0",
+    "karma": "^0.13.8",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-spec-reporter": "0.0.20",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.2.5",
+    "phantomjs": "^1.9.17",
+    "webpack": "^1.11.0"
+  },
+  "homepage": "https://github.com/think2011/localResizeIMG#readme",
+  "keywords": [
+    "lrz",
+    "localResizeIMG",
+    "前端压缩图片",
+    "前端图片压缩",
+    "压缩图片"
+  ],
+  "license": "MIT",
+  "main": "dist/lrz.all.bundle.js",
+  "name": "lrz",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/think2011/localResizeIMG.git"
+  },
+  "scripts": {
+    "test": "node ./node_modules/karma/bin/karma start"
+  },
+  "version": "4.9.40"
+}

@@ -4,6 +4,16 @@
     <link rel="stylesheet" href="/editor-master/css/style.css" />
     <link rel="stylesheet" href="/editor-master/css/editormd.css" />
     <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+    <script src="{{asset('lrz/dist/lrz.bundle.js')}}" type="text/javascript"></script>
+
+
+    <form class="layui-form" action="{{route('admin.article.store')}}" method="post" id="avatar">
+    <div class="layui-form-item">
+        <label for="" class="layui-form-label">标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" value="" lay-verify="required" placeholder="请输入标题" class="layui-input" >
+        </div>
+    </div>
 
     <div id="layout">
         {{--<header>
@@ -31,10 +41,18 @@
             <button id="toc-menu-btn">ToC Dropdown menu</button>
             <button id="toc-default-btn">ToC default</button>
         </div>--}}
-        <div id="test-editormd"></div>
+        <div id="test-editormd" name="content"></div>
     </div>
+    </form>
     <script src="/editor-master/js/jquery.min.js"></script>
     <script src="/editor-master/js/editormd.min.js"></script>
+
+
+    {{--测试--}}
+    <img src="{{url('/file.png')}}" id="pic" style="cursor: pointer;"/>
+
+    <input type="file" name="photo" id="photo_upload" style="" />
+
 
 @endsection
 
@@ -74,7 +92,7 @@
                     //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
                     imageUpload : true,
                     imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                    imageUploadURL : "./php/upload.php",
+                    imageUploadURL : "{{ route('uploadImg') }}",
                     onload : function() {
                         console.log('onload', this);
                         //this.fullscreen();
@@ -145,4 +163,109 @@
             });
         });
     </script>
+
+
+    <script type="text/javascript">
+        function paste(event) {
+            var clipboardData = event.clipboardData;
+            var items, item, types;
+            if (clipboardData) {
+                items = clipboardData.items;
+                if (!items) {
+                    return;
+                }
+                // 保存在剪贴板中的数据类型
+                types = clipboardData.types || [];
+                for (var i = 0; i < types.length; i++) {
+                    if (types[i] === 'Files') {
+                        item = items[i];
+                        break;
+                    }
+                }
+
+                // 判断是否为图片数据
+                if (item && item.kind === 'file' && item.type.match(/^image\//i)) {
+                    // 读取该图片
+                    var file = item.getAsFile(),
+                        reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = function () {
+                        //前端压缩
+                        lrz(reader.result, {width: 1080}).then(function (res) {
+                            $.ajax({
+                                url: "{{route('uploadImg_parse')}}",
+                                type: 'post',
+                                data: {
+                                    "image": res.base64,
+                                    "name": new Date().getTime() + ".png"
+                                },
+                                contentType: 'application/x-www-form-urlencoded;charest=UTF-8',
+                                success: function (data) {
+                                    var imageName;
+                                    try {
+                                        imageName = data.data;
+                                    } catch (e) {
+                                        alert(e.toString);
+                                    }
+                                    var qiniuUrl = '![](' + imageName + ')';
+                                    testEditor.insertValue(qiniuUrl);
+                                }
+                            })
+                        });
+
+
+                    }
+                }
+            }
+        }
+        document.addEventListener('paste', function (event) {
+            paste(event);
+        })
+
+//测试
+        $('#pic').on('click', function(){
+
+            $('#photo_upload').trigger('click');
+
+            $('#photo_upload').on('change', function(){
+                var obj = this;
+                var formData = new FormData();
+                formData.append('photo', this.files[0]);
+                $.ajax({
+                    url: "{{route('uploadImg_cs')}}",
+                    type: 'post',
+                    data: formData,
+                    // 因为data值是FormData对象，不需要对数据做处理
+                    processData: false,
+                    contentType: false,
+                    beforeSend:function(){
+                        // 菊花转转图
+                        $('#pic').attr('src', '/load.gif');
+                    },
+                    success: function(data){
+                        if(data['ServerNo']=='200'){
+                            // 如果成功
+                            $('#pic').attr('src', '/uploads/'+data['ResultData']);
+                            $('input[name=pic]').val(data);
+                            $(obj).off('change');
+                        }else{
+                            // 如果失败
+                            alert(data['ResultData']);
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        var number = XMLHttpRequest.status;
+                        var info = "错误号"+number+"文件上传失败!";
+                        // 将菊花换成原图
+                        $('#pic').attr('src', '/file.png');
+                        alert(info);
+                    },
+                    async: true
+                });
+            });
+        });
+    </script>
+
 @endsection
+
+

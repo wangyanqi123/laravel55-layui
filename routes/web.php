@@ -1,6 +1,8 @@
 <?php
 //文件上传接口，前后台共用
 Route::post('uploadImg', 'PublicController@uploadImg')->name('uploadImg');
+Route::post('uploadImg_parse', 'PublicController@uploadImg_parse')->name('uploadImg_parse');
+Route::post('uploadImg_cs', 'PublicController@uploadImg_cs')->name('uploadImg_cs');
 //发送短信
 Route::post('/sendMsg', 'PublicController@sendMsg')->name('sendMsg');
 

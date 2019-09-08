@@ -25,3 +25,6 @@ php artisan key:generate
 权限 
 
 消息推送 
+
+
+122222
