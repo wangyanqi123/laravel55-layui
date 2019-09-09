@@ -189,6 +189,42 @@
                     var file = item.getAsFile(),
                         reader = new FileReader();
                     reader.readAsDataURL(file);
+                    //上传
+                    /*var formData = new FormData();
+                    formData.append('photo', file);
+                    $.ajax({
+                        url: "{{route('uploadImg_cs')}}",
+                        type: 'post',
+                        data: formData,
+                        // 因为data值是FormData对象，不需要对数据做处理
+                        processData: false,
+                        contentType: false,
+                        beforeSend:function(){
+                            // 菊花转转图
+                            $('#pic').attr('src', '/load.gif');
+                        },
+                        success: function(data){
+                            if(data.code=='200'){
+                                // 如果成功
+                                var imageName = data.data;
+                                var qiniuUrl = '![](' + imageName + ')';
+                                testEditor.insertValue(qiniuUrl);
+                            }else{
+                                // 如果失败
+                                alert(data['ResultData']);
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            var number = XMLHttpRequest.status;
+                            var info = "错误号"+number+"文件上传失败!";
+                            // 将菊花换成原图
+                            $('#pic').attr('src', '/file.png');
+                            alert(info);
+                        },
+                        async: true
+                    });*/
+
+
                     reader.onload = function () {
                         //前端压缩
                         lrz(reader.result, {width: 1080}).then(function (res) {
@@ -215,6 +251,7 @@
 
 
                     }
+
                 }
             }
         }
@@ -224,9 +261,7 @@
 
 //测试
         $('#pic').on('click', function(){
-
             $('#photo_upload').trigger('click');
-
             $('#photo_upload').on('change', function(){
                 var obj = this;
                 var formData = new FormData();
