@@ -121,7 +121,7 @@
                                         @foreach($cate->articles as $cate_one)
 
                                                 <dd data-name="{{$cate_one->title}}" >
-                                                    <a lay-href="{{route('book.index',['cate'=>$cate])}}">{{$cate_one->title}}</a>
+                                                    <a lay-href="{{route('book.index',['cate'=>$cate_one])}}">{{$cate_one->title}}</a>
                                                 </dd>
 
                                         @endforeach

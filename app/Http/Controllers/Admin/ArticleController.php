@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\ArticleMarkRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
@@ -170,5 +170,17 @@ class ArticleController extends Controller
     {
         $data = EndaEditor::uploadImgFile('uploads');
         return json_encode($data);
+    }
+
+    public function store_mark(ArticleMarkRequest $request)
+    {
+        $data = $request->only(['category_id','title','keywords','description','test-editormd-markdown-doc','thumb','click']);
+        $data['content'] = $data['test-editormd-markdown-doc'];
+        $data['abc'] = '123';
+        $article = Article::create($data);
+        if ($article && !empty($request->get('tags')) ){
+            $article->tags()->sync($request->get('tags'));
+        }
+        return redirect(route('admin.article'))->with(['status'=>'添加成功']);
     }
 }

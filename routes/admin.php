@@ -10,7 +10,7 @@
 Route::group(['namespace'=>'Admin','prefix'=>'admin'],function (){
     //登录、注销
     Route::get('login','LoginController@showLoginForm')->name('admin.loginForm');
-    //Route::get('login','LoginController@showLoginForm')->name('login');
+    Route::get('login','LoginController@showLoginForm')->name('login');
     Route::post('login','LoginController@login')->name('admin.login');
     Route::get('logout','LoginController@logout')->name('admin.logout');
 
@@ -137,6 +137,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         //添加2
         Route::get('article/add', 'ArticleController@add')->name('admin.article.add')->middleware('permission:zixun.article.add');
         Route::post('article/upload', 'ArticleController@upload')->name('admin.article.upload');
+        Route::post('article/store_mark', 'ArticleController@store_mark')->name('admin.article.store_mark');
+
         //编辑
         Route::get('article/{id}/edit', 'ArticleController@edit')->name('admin.article.edit')->middleware('permission:zixun.article.edit');
         Route::put('article/{id}/update', 'ArticleController@update')->name('admin.article.update')->middleware('permission:zixun.article.edit');

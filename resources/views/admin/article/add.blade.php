@@ -7,7 +7,7 @@
     <script src="{{asset('lrz/dist/lrz.bundle.js')}}" type="text/javascript"></script>
 
 
-    <form class="layui-form" action="{{route('admin.article.store')}}" method="post" id="avatar">
+    <form class="layui-form" action="{{route('admin.article.store_mark')}}" method="post" id="avatar">
     <div class="layui-form-item">
         <label for="" class="layui-form-label">标题</label>
         <div class="layui-input-block">
@@ -43,6 +43,13 @@
         </div>--}}
         <div id="test-editormd" name="content"></div>
     </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="formDemo">确 认</button>
+                <a  class="layui-btn" href="{{route('admin.article')}}" >返 回</a>
+            </div>
+        </div>
+        {{csrf_field()}}
     </form>
     <script src="/editor-master/js/jquery.min.js"></script>
     <script src="/editor-master/js/editormd.min.js"></script>

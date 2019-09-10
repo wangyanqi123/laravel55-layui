@@ -10,13 +10,14 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
+        "league/html-to-markdown": "^4.8",
         "mews/captcha": "^2.2",
         "simplesoftwareio/simple-qrcode": "^2.0",
         "spatie/laravel-permission": "^2.12",
         "stevenyangecho/laravel-u-editor": "^1.4",
         "yansongda/laravel-pay": "^2.0",
-        "zgldh/qiniu-laravel-storage": "^0.9.2",
-        "yuanchao/laravel-5-markdown-editor": "dev-master"
+        "yuanchao/laravel-5-markdown-editor": "dev-master",
+        "zgldh/qiniu-laravel-storage": "^0.9.2"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
