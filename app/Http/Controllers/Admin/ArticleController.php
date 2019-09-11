@@ -9,6 +9,7 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use YuanChao\Editor\EndaEditor;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -182,5 +183,54 @@ class ArticleController extends Controller
             $article->tags()->sync($request->get('tags'));
         }
         return redirect(route('admin.article'))->with(['status'=>'添加成功']);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_mark(Request $request)
+    {
+        $id = $request['id'];
+        $article = Article::with('tags')->findOrFail($id);
+        if (!$article){
+            return redirect(route('admin.article'))->withErrors(['status'=>'文章不存在']);
+        }
+
+        //寫入文件
+        /*$filePath = "test.md";
+        Storage::append($filePath,$article['content']);*/
+        $path=base_path().'/public/test1.md';
+        file_put_contents($path,$article['content']);//把字符串内容存储到web.php中。
+        //分类
+        $categorys = Category::with('allChilds')->where('parent_id',0)->orderBy('sort','desc')->get();
+        //标签
+        $tags = Tag::get();
+        foreach ($tags as $tag){
+            $tag->checked = $article->tags->contains($tag) ? 'checked' : '';
+        }
+        return view('admin.article.edit_mark',compact('article','categorys','tags'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_mark(ArticleMarkRequest $request, $id)
+    {
+        $article = Article::with('tags')->findOrFail($id);
+        $data = $request->only(['category_id','title','keywords','test-editormd-markdown-doc','description','content','thumb','click']);
+        $data['content'] = $data['test-editormd-markdown-doc'];
+        if ($article->update($data)){
+            $article->tags()->sync($request->get('tags',[]));
+            return redirect(route('admin.article'))->with(['status'=>'更新成功']);
+        }
+        return redirect(route('admin.article'))->withErrors(['status'=>'系统错误']);
     }
 }
