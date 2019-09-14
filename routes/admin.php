@@ -139,6 +139,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::post('article/upload', 'ArticleController@upload')->name('admin.article.upload');
         Route::post('article/store_mark', 'ArticleController@store_mark')->name('admin.article.store_mark');
 
+        Route::get('article/{id}/edit_mark', 'ArticleController@edit_mark')->name('admin.article.edit_mark');
+        Route::put('article/{id}/update_mark', 'ArticleController@update_mark')->name('admin.article.update_mark');
+
         //编辑
         Route::get('article/{id}/edit', 'ArticleController@edit')->name('admin.article.edit')->middleware('permission:zixun.article.edit');
         Route::put('article/{id}/update', 'ArticleController@update')->name('admin.article.update')->middleware('permission:zixun.article.edit');

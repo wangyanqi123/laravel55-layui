@@ -40,9 +40,9 @@
             <table id="dataTable" lay-filter="dataTable"></table>
             <script type="text/html" id="options">
                 <div class="layui-btn-group">
-                    @can('zixun.article.edit')
-                        <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
-                    @endcan
+                    {{--@can('zixun.article.edit_mark')--}}
+                        <a class="layui-btn layui-btn-sm" lay-event="edit_mark">编辑</a>
+                    {{--@endcan--}}
                     @can('zixun.article.destroy')
                         <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
                     @endcan
@@ -107,6 +107,8 @@
                         });
                     } else if(layEvent === 'edit'){
                         location.href = '/admin/article/'+data.id+'/edit';
+                    }else if(layEvent === 'edit_mark'){
+                        location.href = '/admin/article/'+data.id+'/edit_mark';
                     }
                 });
 
