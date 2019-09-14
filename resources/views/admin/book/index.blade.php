@@ -6,15 +6,15 @@
 
     <div class="layui-card">
 
-        <div class="layui-card-header">
+        <div class="layui-card-header" style="height: 50px;line-height: 50px;">
 
-            <center>{{$data->title}}</center>
+            <h2 style="font-weight:600"><center>{{$data->title}}</center></h2>
 
             <i class="layui-icon layui-icon-tips" lay-tips="要支持的噢" lay-offset="5"></i>
 
         </div>
 
-        <div class="layui-card-body layui-text layadmin-text">
+        <div class="layui-card-body layui-text layadmin-text" style="margin-left: 20px;">
 
             {{--<p>一直以来，layui 秉承无偿开源的初心，虔诚致力于服务各层次前后端 Web 开发者，在商业横飞的当今时代，这一信念从未动摇。即便身单力薄，仍然重拾决心，埋头造轮，以尽可能地填补产品本身的缺口。</p>
 
