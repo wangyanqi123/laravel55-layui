@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use YuanChao\Editor\EndaEditor;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redis;
 
 
 
@@ -193,6 +194,9 @@ class ArticleController extends Controller
      */
     public function edit_mark(Request $request)
     {
+        Redis::set('name', 'guwenjie');
+        $values = Redis::get('name');
+        dd($values);
         $id = $request['id'];
         $article = Article::with('tags')->findOrFail($id);
         if (!$article){
