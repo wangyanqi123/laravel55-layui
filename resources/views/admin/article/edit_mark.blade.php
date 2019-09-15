@@ -23,6 +23,7 @@
                 <a  class="layui-btn" href="{{route('admin.article')}}" >返 回</a>
             </div>
         </div>
+        <input type="hidden" value="{{$article->id}}" class="articleid">
         {{csrf_field()}}
         {{ method_field('put') }}
     </form>
@@ -174,6 +175,43 @@
         document.addEventListener('paste', function (event) {
             paste(event);
         })
+        //ctrl+s 保存
+        document.onkeydown=function()   {
+
+            if (event.ctrlKey == true && event.keyCode == 83) {//Ctrl+S
+                event.returnvalue = false;
+                //alert('触发ctrl+s');return;
+                var  title = $('input[name=title]').val();
+                var  content = $('.editormd-markdown-textarea').val();
+                var id = $('.articleid').val();
+                //取html的值
+                //var  content = $('.editormd-html-textarea').val();
+                $.ajax({
+                    url: "/admin/article/ajax",
+                    method: "POST",
+                    data: {"id": id,"title": title,"content": content},
+                    dataType: "json",
+                    success: function success(data) {
+                        layer.msg(data.msg,{icon:1});
+                    }
+                });
+
+            }
+
+        }
+
+        window.addEventListener("keydown", function(e) {
+            //可以判断是不是mac，如果是mac,ctrl变为花键
+            //event.preventDefault() 方法阻止元素发生默认的行为。
+            if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+                e.preventDefault();
+                // Process event...
+                document.getElementById("test").innerHTML = "ctrl+s成功";
+            }
+        }, false);
+
+
+
         </script>
     @include('admin.article._js')
 @endsection

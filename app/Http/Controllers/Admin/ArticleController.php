@@ -233,4 +233,25 @@ class ArticleController extends Controller
         }
         return redirect(route('admin.article'))->withErrors(['status'=>'系统错误']);
     }
+
+    public function ajax(Request $request)
+    {
+        $data = $request->only(['id','title','content']);
+        $id = $request['id'];
+        $article = Article::findOrFail($id);
+        if ($article->update($data)){
+            $data = [
+                'code' => 200,
+                'msg' => '更新成功',
+                'data' => ''
+            ];
+        }else{
+            $data = [
+                'code' => 500,
+                'msg' => '更新失败',
+                'data' => ''
+            ];
+        }
+        return response()->json($data);
+    }
 }
