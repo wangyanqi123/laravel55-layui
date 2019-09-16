@@ -21,9 +21,10 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //分类
+        //dd($request->session()->all());
+        //文章
         $categorys = Category::with('allChilds')->where('parent_id',0)->orderBy('sort','desc')->get();
         return view('admin.article.index',compact('categorys'));
     }

@@ -18,6 +18,7 @@
         "spatie/laravel-permission": "^2.12",
         "stevenyangecho/laravel-u-editor": "^1.4",
         "yansongda/laravel-pay": "^2.0",
+        "yansongda/pay": "^2.7",
         "yuanchao/laravel-5-markdown-editor": "dev-master",
         "zgldh/qiniu-laravel-storage": "^0.9.2"
     },
