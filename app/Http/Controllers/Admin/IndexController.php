@@ -22,7 +22,7 @@ class IndexController extends Controller
         }else{
             $title = '王延琦技术博客后台';
         };
-        return view('admin.layout',compact($title));
+        return view('admin.layout',compact('title'));
     }
 
     /**
