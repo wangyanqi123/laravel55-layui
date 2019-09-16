@@ -12,3 +12,4 @@ yarn-error.log
 .env
 /public/test1.md
 /public/test2.md
+/public/*.md
