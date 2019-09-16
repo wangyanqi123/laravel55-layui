@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    {{--<title>王延琦技术博客后台</title>--}}
+    <title>{{$title}}</title>
     <title>laravel</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
