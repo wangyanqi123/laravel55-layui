@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use YuanChao\Editor\EndaEditor;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redis;
 
 
 
@@ -193,6 +194,9 @@ class ArticleController extends Controller
      */
     public function edit_mark(Request $request)
     {
+        Redis::set('name', 'guwenjie');
+        $values = Redis::get('name');
+        dd($values);
         $id = $request['id'];
         $article = Article::with('tags')->findOrFail($id);
         if (!$article){
@@ -232,5 +236,26 @@ class ArticleController extends Controller
             return redirect(route('admin.article'))->with(['status'=>'更新成功']);
         }
         return redirect(route('admin.article'))->withErrors(['status'=>'系统错误']);
+    }
+
+    public function ajax(Request $request)
+    {
+        $data = $request->only(['id','title','content']);
+        $id = $request['id'];
+        $article = Article::findOrFail($id);
+        if ($article->update($data)){
+            $data = [
+                'code' => 200,
+                'msg' => '更新成功',
+                'data' => ''
+            ];
+        }else{
+            $data = [
+                'code' => 500,
+                'msg' => '更新失败',
+                'data' => ''
+            ];
+        }
+        return response()->json($data);
     }
 }

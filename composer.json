@@ -12,6 +12,8 @@
         "laravel/tinker": "~1.0",
         "league/html-to-markdown": "^4.8",
         "mews/captcha": "^2.2",
+        "overtrue/wechat": "~4.0",
+        "predis/predis": "^1.1",
         "simplesoftwareio/simple-qrcode": "^2.0",
         "spatie/laravel-permission": "^2.12",
         "stevenyangecho/laravel-u-editor": "^1.4",
