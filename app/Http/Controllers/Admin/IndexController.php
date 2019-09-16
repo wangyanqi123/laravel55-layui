@@ -17,6 +17,7 @@ class IndexController extends Controller
      */
     public function layout()
     {
+        dd($_SERVER);
         return view('admin.layout');
     }
 
