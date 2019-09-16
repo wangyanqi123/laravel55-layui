@@ -32,3 +32,11 @@ Route::group(['namespace'=>'Home','prefix'=>'member','middleware'=>'member'],fun
     //退出
     Route::get('logout', 'MemberController@logout')->name('home.member.logout');
 });
+
+//自己做的功能
+Route::group(['namespace' => 'Home'], function () {
+    //微信登录
+    Route::get('/all', 'AllController@index')->name('all.index');
+    //微信支付回调
+
+});

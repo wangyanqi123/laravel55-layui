@@ -69,7 +69,7 @@
 
         $(function() {
 
-            $.get('/editor-master/test.md', function(md){
+            $.get('/test2.md', function(md){
                 testEditor = editormd("test-editormd", {
                     width: "90%",
                     height: 740,

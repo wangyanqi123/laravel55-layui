@@ -21,9 +21,10 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //分类
+        //dd($request->session()->all());
+        //文章
         $categorys = Category::with('allChilds')->where('parent_id',0)->orderBy('sort','desc')->get();
         return view('admin.article.index',compact('categorys'));
     }
@@ -179,7 +180,11 @@ class ArticleController extends Controller
         $data = $request->only(['category_id','title','keywords','description','test-editormd-markdown-doc','thumb','click']);
         $data['content'] = $data['test-editormd-markdown-doc'];
         $data['abc'] = '123';
+        $data['category_id'] = '1';
         $article = Article::create($data);
+        //存入redis
+        $id = $article->id;
+        Redis::set("article_".$id, json_encode($article));
         if ($article && !empty($request->get('tags')) ){
             $article->tags()->sync($request->get('tags'));
         }
@@ -194,9 +199,10 @@ class ArticleController extends Controller
      */
     public function edit_mark(Request $request)
     {
-        Redis::set('name', 'guwenjie');
-        $values = Redis::get('name');
-        dd($values);
+        /*Redis::set('article_1', '1');
+        Redis::set('article_2', '2');
+        $values = Redis::get('article_3');
+        dd($values);*/
         $id = $request['id'];
         $article = Article::with('tags')->findOrFail($id);
         if (!$article){
@@ -232,6 +238,8 @@ class ArticleController extends Controller
         $data = $request->only(['category_id','title','keywords','test-editormd-markdown-doc','description','content','thumb','click']);
         $data['content'] = $data['test-editormd-markdown-doc'];
         if ($article->update($data)){
+            //文章存入redis
+            Redis::set("article_".$id, json_encode($article));
             $article->tags()->sync($request->get('tags',[]));
             return redirect(route('admin.article'))->with(['status'=>'更新成功']);
         }
@@ -244,6 +252,8 @@ class ArticleController extends Controller
         $id = $request['id'];
         $article = Article::findOrFail($id);
         if ($article->update($data)){
+            //文章存入redis
+            Redis::set("article_".$id, json_encode($article));
             $data = [
                 'code' => 200,
                 'msg' => '更新成功',

@@ -4,7 +4,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>王延琦技术博客后台</title>
+    {{--<title>王延琦技术博客后台</title>--}}
+    <title>laravel</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -92,7 +93,7 @@
                 </div>
 
                 <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
-                    <li data-name="home" class="layui-nav-item layui-nav-itemed">
+                    {{--<li data-name="home" class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:;" lay-tips="主页" lay-direction="2">
                             <i class="layui-icon layui-icon-home"></i>
                             <cite>主页</cite>
@@ -108,7 +109,7 @@
                                 <a lay-href="{{route('admin.index2')}}">主页二</a>
                             </dd>
                         </dl>
-                    </li>
+                    </li>--}}
                     {{--添加--}}
                     @foreach($cate as $cate)
                             <li data-name="{{$cate->name}}" class="layui-nav-item">
