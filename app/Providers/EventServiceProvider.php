@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Article;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use App\Observers\ArticleObserver;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -26,7 +28,7 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
+        Article::observe(ArticleObserver::class);
         //
     }
 }

@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redis;
 
 
-
 class ArticleController extends Controller
 {
     /**
@@ -184,7 +183,7 @@ class ArticleController extends Controller
         $article = Article::create($data);
         //存入redis
         $id = $article->id;
-        Redis::set("article_".$id, json_encode($article));
+        //Redis::set("article_".$id, json_encode($article));
         if ($article && !empty($request->get('tags')) ){
             $article->tags()->sync($request->get('tags'));
         }
@@ -239,7 +238,7 @@ class ArticleController extends Controller
         $data['content'] = $data['test-editormd-markdown-doc'];
         if ($article->update($data)){
             //文章存入redis
-            Redis::set("article_".$id, json_encode($article));
+            ///Redis::set("article_".$id, json_encode($article));
             $article->tags()->sync($request->get('tags',[]));
             return redirect(route('admin.article'))->with(['status'=>'更新成功']);
         }
@@ -253,7 +252,7 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         if ($article->update($data)){
             //文章存入redis
-            Redis::set("article_".$id, json_encode($article));
+            //Redis::set("article_".$id, json_encode($article));
             $data = [
                 'code' => 200,
                 'msg' => '更新成功',
