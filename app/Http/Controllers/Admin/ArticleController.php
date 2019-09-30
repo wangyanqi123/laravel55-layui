@@ -221,7 +221,6 @@ class ArticleController extends Controller
             $tag->checked = $article->tags->contains($tag) ? 'checked' : '';
         }
         return view('admin.article.edit_mark',compact('article','categorys','tags'));
-
     }
 
     /**
