@@ -14,7 +14,17 @@
             <input type="text" name="title" value="" lay-verify="required" placeholder="请输入标题" class="layui-input" >
         </div>
     </div>
-
+    <div class="layui-form-item">
+        <label for="" class="layui-form-label">标题</label>
+        <div class="layui-input-block" style="width:170px">
+            <select name="brand_id" class="select2">
+                <option value="0">请选择品牌</option>
+                @foreach ($categorys as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
     <div id="layout">
         {{--<header>
             <h1>完整示例</h1>

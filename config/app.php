@@ -188,7 +188,8 @@ return [
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
 
-        YuanChao\Editor\EndaEditorServiceProvider::class
+        YuanChao\Editor\EndaEditorServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -239,6 +240,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

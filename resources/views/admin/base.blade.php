@@ -13,6 +13,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/static/admin/layuiadmin/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/static/admin/layuiadmin/style/admin.css" media="all">
+    <script src="/static/admin/layuiadmin/layui/layui.js"></script>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/socket.io.js"></script>
-<script src="/static/admin/layuiadmin/layui/layui.js"></script>
+{{--<script src="/static/admin/layuiadmin/layui/layui.js"></script>--}}
 <script>
     $.ajaxSetup({
         headers: {
