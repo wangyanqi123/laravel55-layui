@@ -15,10 +15,10 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label for="" class="layui-form-label">标题</label>
+        <label for="" class="layui-form-label">分类</label>
         <div class="layui-input-block" style="width:170px">
             <select name="category_id" class="select2">
-                <option value="0">请选择品牌</option>
+                <option value="0">请选择分类</option>
                 @foreach ($categorys as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
