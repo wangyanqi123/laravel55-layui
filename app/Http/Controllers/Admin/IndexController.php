@@ -17,10 +17,12 @@ class IndexController extends Controller
      */
     public function layout()
     {
+        echo $_SERVER['SERVER_ADDR'];
         if($_SERVER['SERVER_ADDR'] == '127.0.0.1'){
             $title = 'Laravel';
         }else{
-            $title = '王延琦技术博客后台';
+            //$title = '王延琦技术博客后台';
+            $title = 'Laravel';
         };
         return view('admin.layout',compact('title'));
     }
