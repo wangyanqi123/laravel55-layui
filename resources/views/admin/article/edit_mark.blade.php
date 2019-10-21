@@ -188,6 +188,7 @@
                 event.returnvalue = false;
                 //alert('触发ctrl+s');return;
                 var  title = $('input[name=title]').val();
+                var  description = $('input[name=description]').val();
                 var  content = $('.editormd-markdown-textarea').val();
                 var id = $('.articleid').val();
                 //取html的值
