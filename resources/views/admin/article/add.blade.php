@@ -15,6 +15,12 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label for="" class="layui-form-label">描述</label>
+        <div class="layui-input-block">
+            <input type="text" name="description" value="" lay-verify="required" placeholder="请输入描述" class="layui-input" >
+        </div>
+    </div>
+    <div class="layui-form-item">
         <label for="" class="layui-form-label">分类</label>
         <div class="layui-input-block" style="width:170px">
             <select name="category_id" class="select2">

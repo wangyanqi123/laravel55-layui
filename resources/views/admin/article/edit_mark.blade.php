@@ -14,6 +14,12 @@
                 <input type="text" name="title"  lay-verify="required" placeholder="请输入标题" class="layui-input" value="{{$article->title??old('title')}}" >
             </div>
         </div>
+        <div class="layui-form-item">
+            <label for="" class="layui-form-label">描述</label>
+            <div class="layui-input-block">
+                <input type="text" name="description" value="{{$article->description??old('description')}}" lay-verify="required" placeholder="请输入描述" class="layui-input" >
+            </div>
+        </div>
         <div id="layout">
             <div id="test-editormd" name="content"></div>
         </div>
