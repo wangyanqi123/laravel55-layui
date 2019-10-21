@@ -178,12 +178,10 @@ class ArticleController extends Controller
     {
         $data = $request->only(['category_id','title','keywords','description','test-editormd-markdown-doc','thumb','click']);
         $data['content'] = $data['test-editormd-markdown-doc'];
-        $data['abc'] = '123';
-        $data['category_id'] = '1';
         $article = Article::create($data);
         //存入redis
         $id = $article->id;
-        //Redis::set("article_".$id, json_encode($article));
+        Redis::set("article_".$id, json_encode($article));
         if ($article && !empty($request->get('tags')) ){
             $article->tags()->sync($request->get('tags'));
         }
