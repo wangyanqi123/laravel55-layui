@@ -20,7 +20,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function (){
 
 //添加
 Route::group(['namespace'=>'Admin'],function () {
-    Route::get('book', 'IndexController@layout')->name('admin.layout');
+    Route::get('/', 'IndexController@layout')->name('admin.layout');
     Route::get('book/{id}/index', 'BookController@index')->name('book.index');
     Route::post('do_upload', 'BookController@do_upload')->name('admin.layout');
 });
