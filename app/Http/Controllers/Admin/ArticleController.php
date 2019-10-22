@@ -22,6 +22,10 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
+        echo "<pre>";
+        print_r($_SERVER);
+        echo "</pre>";
+        exit;
         //dd($request->session()->all());
         //文章
         $categorys = Category::with('allChilds')->where('parent_id',0)->orderBy('sort','desc')->get();
