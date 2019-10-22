@@ -196,7 +196,7 @@
                 $.ajax({
                     url: "/admin/article/ajax",
                     method: "POST",
-                    data: {"id": id,"title": title,"content": content},
+                    data: {"id": id,"title": title,"content": content,"description": description},
                     dataType: "json",
                     success: function success(data) {
                         layer.msg(data.msg,{icon:1});
