@@ -19,11 +19,11 @@ class IndexController extends Controller
     {
         if($_SERVER['SERVER_ADDR'] == '127.0.0.1'){
             $title = 'Laravel';
-        }elseif(substr($_SERVER['REMOTE_ADDR'],0,9) == '116.231.91'){
+        }elseif(substr($_SERVER['REMOTE_ADDR'],0,10) == '116.231.91'){
             //$title = '王延琦技术博客后台';
             $title = 'Laravel';
         }else{
-            $title = substr($_SERVER['REMOTE_ADDR'],0,9);
+            $title = '王延琦技术博客后台';
         };
         return view('admin.layout',compact('title'));
     }
