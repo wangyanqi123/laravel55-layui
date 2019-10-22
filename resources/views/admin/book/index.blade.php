@@ -23,7 +23,7 @@
             <p>子曰：君子不用防，小人防不住。请务必通过官网正规渠道，获得 <a href="http://www.layui.com/admin/" target="_blank">layuiAdmin</a>！</p>
 
             <p>—— 贤心（<a href="http://www.layui.com/" target="_blank">layui.com</a>）</p>--}}
-            {!! $data->content!!}
+            {!! $data->content !!}
         </div>
         <br/><br/><br/><br/><br/><br/>
     </div>
