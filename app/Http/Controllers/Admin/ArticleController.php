@@ -244,7 +244,7 @@ class ArticleController extends Controller
 
     public function ajax(Request $request)
     {
-        $data = $request->only(['id','title','content']);
+        $data = $request->only(['id','title','content','description']);
         $id = $request['id'];
         $article = Article::findOrFail($id);
         if ($article->update($data)){
