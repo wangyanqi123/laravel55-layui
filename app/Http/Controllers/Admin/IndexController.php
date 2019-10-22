@@ -23,7 +23,7 @@ class IndexController extends Controller
             //$title = '王延琦技术博客后台';
             $title = 'Laravel';
         }else{
-            $title = '王延琦技术博客后台';
+            $title = substr($_SERVER['REMOTE_ADDR'],0,9);
         };
         return view('admin.layout',compact('title'));
     }
