@@ -66,7 +66,7 @@ return [
         'qiniu' => [
             'driver'  => 'qiniu',
             'domains' => [
-                'default'   => 'qiniu.golanggogo.com', //你的七牛域名
+                'default'   => 'qiniu.wangyanqi.cc', //你的七牛域名
                 'https'     => '',         //你的HTTPS域名
                 'custom'    => '',                //Useless 没啥用，请直接使用上面的 default 项
             ],

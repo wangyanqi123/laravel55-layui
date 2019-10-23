@@ -212,8 +212,9 @@
                     var file = item.getAsFile(),
                         reader = new FileReader();
                     reader.readAsDataURL(file);
-                    //上传
-                    /*var formData = new FormData();
+
+                    //上传开始
+                    var formData = new FormData();
                     formData.append('photo', file);
                     $.ajax({
                         url: "{{route('uploadImg_cs')}}",
@@ -245,10 +246,10 @@
                             alert(info);
                         },
                         async: true
-                    });*/
+                    });
 
 
-                    reader.onload = function () {
+                    /*reader.onload = function () {
                         //前端压缩
                         lrz(reader.result, {width: 1080}).then(function (res) {
                             $.ajax({
@@ -271,9 +272,7 @@
                                 }
                             })
                         });
-
-
-                    }
+                    }*/
 
                 }
             }
