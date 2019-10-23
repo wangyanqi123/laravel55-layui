@@ -1,7 +1,13 @@
 @extends('admin.base')
 
 @section('content')
+    <style>
+        .layui-card-body code,.layui-card-body pre{
+            background-color: #f0f0f0;
+            border-radius: 3px;
+        }
 
+        </style>
 
 
     <div class="layui-card">
