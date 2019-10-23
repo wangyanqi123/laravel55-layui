@@ -20,7 +20,7 @@
 
         </div>
 
-        <div class="layui-card-body layui-text layadmin-text" style="margin-left: 20px;">
+        <div class="layui-card-body layui-text layadmin-text">
             <p></p>
             {{--<p>一直以来，layui 秉承无偿开源的初心，虔诚致力于服务各层次前后端 Web 开发者，在商业横飞的当今时代，这一信念从未动摇。即便身单力薄，仍然重拾决心，埋头造轮，以尽可能地填补产品本身的缺口。</p>
 
