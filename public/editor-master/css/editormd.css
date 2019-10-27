@@ -1,8 +1,8 @@
 /*
  * Editor.md
  *
- * @file        editormd.css 
- * @version     v1.5.0 
+ * @file        editormd.css
+ * @version     v1.5.0
  * @description Open source online markdown editor.
  * @license     MIT License
  * @author      Pandao
@@ -377,7 +377,7 @@
 
 .editormd-mask,
 .editormd-dialog-mask-bg {
-  background: #fff;
+  /*background: #fff;*/
   opacity: 0.5;
   filter: alpha(opacity=50);
 }
@@ -3118,8 +3118,8 @@
 .editormd-logo-7x:before,
 .editormd-logo-8x:before {
   content: "\e1987";
-  /* 
-  HTML Entity &#xe1987; 
+  /*
+  HTML Entity &#xe1987;
   example: <span class="editormd-logo">&#xe1987;</span>
   */
 }
