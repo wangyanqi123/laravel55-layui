@@ -98,7 +98,8 @@ class PublicController extends Controller
             $data = [
                 'code' => 200,
                 'msg' => '上传成功',
-                'data' => 'http://'.$_SERVER["HTTP_HOST"].'/'.$filepath.'/'.$newFile
+                //'data' => 'http://'.$_SERVER["HTTP_HOST"].'/'.$filepath.'/'.$newFile
+                'data' => '/'.$filepath.'/'.$newFile
             ];
             return response()->json($data);
         }else{
