@@ -2,11 +2,28 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    use Searchable;
     protected $fillable = ['category_id','title','keywords','description','content','thumb','click'];
+
+
+    public function searchableAs()
+    {
+        return 'posts_index';
+    }
+
+
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+        // Customize array...
+        return array_only($this->toArray(),['id','title']);
+        //return $array;
+    }
 
     //文章所属分类
     public function category()
