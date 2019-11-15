@@ -247,7 +247,11 @@ class ArticleController extends Controller
         $data = $request->only(['id','title','content','description']);
         $id = $request['id'];
         $article = Article::findOrFail($id);
-        if ($article->update($data)){
+        $article->id=$data->input('id');
+        $article->title=$data->input('title');
+        $article->content=$data->input('content');
+        $article->description=$data->input('description');
+        if ($article->save()){
             //文章存入redis
             //Redis::set("article_".$id, json_encode($article));
             $data = [
