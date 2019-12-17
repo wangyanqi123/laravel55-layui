@@ -134,7 +134,8 @@
                             if (data.code == '200') {
                                 // 如果成功
                                 var imageName = data.data;
-                                var qiniuUrl = '![](' + imageName + ')';
+                                //var qiniuUrl = '![](' + imageName + ')';
+                                var qiniuUrl = '![](' + 'http://book.wangyanqi.cc/' + imageName + ')';
                                 testEditor.insertValue(qiniuUrl);
                             } else {
                                 // 如果失败
