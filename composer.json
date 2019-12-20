@@ -20,6 +20,7 @@
         "simplesoftwareio/simple-qrcode": "^2.0",
         "spatie/laravel-permission": "^2.12",
         "stevenyangecho/laravel-u-editor": "^1.4",
+        "tymon/jwt-auth": "dev-develop",
         "yansongda/laravel-pay": "^2.0",
         "yansongda/pay": "^2.7",
         "yuanchao/laravel-5-markdown-editor": "dev-master",
