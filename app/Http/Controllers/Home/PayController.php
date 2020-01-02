@@ -92,10 +92,10 @@ class PayController extends Controller
         $config['return_url'] = $config['return_url'].'?order_guid='.$request->order_guid;
 
         $scan = Pay::alipay($config)->scan($aliPayOrder);
-dd($scan);
+
         if(empty($scan->code) || $scan->code !== '10000') return false;
 
-        $url = $scan->code.'?order_guid='.$request->order_guid;
+        $url = $scan->qr_code.'?order_guid='.$request->order_guid;
         // 生成二维码
         return  QrCode::encoding('UTF-8')->size(300)->generate($url);
 
