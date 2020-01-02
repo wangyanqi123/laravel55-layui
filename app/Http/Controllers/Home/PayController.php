@@ -42,6 +42,13 @@ class PayController extends Controller
         }
     }
 
+   /*
+    * 支付组件
+    composer require yansongda/pay
+    二维码生成器
+    composer require simplesoftwareio/simple-qrcode
+   */
+
     // 手机网页支付接口
     public function aliPay(Request $request)
     {

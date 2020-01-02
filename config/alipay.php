@@ -6,7 +6,7 @@ return [
         // 支付宝 支付成功后 主动通知商户服务器地址  注意 是post请求
         'notify_url' => 'http://www.wangyanqi.cc/redirect_uri',
         // 支付宝 支付成功后 回调页面 get
-        'return_url' => 'http://www.wangyanqi.cc/pay_success',
+        'return_url' => 'http://www.wangyanqi.cc/alipaynotify',
         // 公钥（注意是支付宝的公钥，不是商家应用公钥）
         'ali_public_key' => 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvPEcUahy6xsaKsqd1OLT9aljzGxqAsEz76wtFqDHGwpjGgyQLZw6vO2x+tgKO+tPaOZGeI/fFFslGsJKL5qxVfaRdiPi5MaapvKrteK6ONA9k/hdOZ+vmqCxBoiJVVRsCAOk3T4KpTsZIQgomFyS+EM+eHIg4Rbk7MLQZQ0AEvQyDMoEmiNAB5QZFFXDpJl6A6x9p1s5l9q0dNQuBzdYmmzDkaI7/oe6UWb47MBAe9+m4cs/23R25VpNx0yOs8Jv2DdmCQ3Sho/Zj3b3rr/hM7lEGUmxGQomsjJWblcyv6u9GV1P9S+sjefclnvM/3Cteyq1Dj/5BmjSiMQH6xUBwQIDAQAB',
         // 加密方式： **RSA2** 私钥 商家应用私钥
