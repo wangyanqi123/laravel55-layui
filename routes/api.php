@@ -17,7 +17,6 @@ Route::middleware('auth:api')->get('aaa', function (Request $request) {
     return $request->user();
 });
 
-
 Route::get('/hello', function () {
     return 'world';
 });
