@@ -16,6 +16,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::post('/wechatNotify', 'PayController@wechatNotify')->name('wechatNofity');
 
     Route::get('/alipay', 'PayController@aliPayScan');
+    Route::get('/alipaynotify', 'PayController@aliPayNotify');
 });
 
 //会员-不需要认证

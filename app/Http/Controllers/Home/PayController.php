@@ -104,8 +104,9 @@ class PayController extends Controller
     // 支付成功后 支付宝服务通知本项目服务器
     // post 请求
     // 这里只是大概写一下逻辑，具体的安全防护 自己再去做限制
-    public function aliPayNtify(Request $request, OrderService $orderService)
+    public function aliPayNotify(Request $request, OrderService $orderService)
     {
+        file_put_contents(storage_path('logs/wxapppay.txt'), $request->getContent(), FILE_APPEND);
         $order = Order::find($request->id);
         // 更新自己项目 订单状态
         if(!empty($order))  $orderService->payOrder($order);
