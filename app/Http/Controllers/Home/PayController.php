@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Home;
 
-
+use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Http\Controllers\Controller;
-//use Yansongda\LaravelPay\Facades\Pay;
 use Exception;
 use Log;
-//use QrCode;
 use Yansongda\Pay\Pay;
 use App\Services\OrderService;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
+//use QrCode;
+//use Yansongda\LaravelPay\Facades\Pay;
 
 class PayController extends Controller
 {
