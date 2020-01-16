@@ -26,5 +26,4 @@ php artisan key:generate
 
 消息推送 
 
-
-122222
+如有需要加QQ：553534417
