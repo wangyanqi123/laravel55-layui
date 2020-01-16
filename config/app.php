@@ -191,6 +191,8 @@ return [
 
         YuanChao\Editor\EndaEditorServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Way\Generators\GeneratorsServiceProvider::class,
+        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
     ],
 
     /*
